@@ -1,0 +1,191 @@
+.formModal {
+  background-color: var(--color-dark);
+  position: absolute;
+  top: 8%;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  overflow: scroll;
+}
+
+.formModal .errorText {
+  margin-top: 0.5rem;
+  color: red;
+}
+
+.formModal h2 {
+  color: var(--color-text);
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form p {
+  color: var(--color-purple);
+  font-size: 0.8rem;
+}
+
+.formInput {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.formInput label {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+}
+
+.formInput input,
+.formInput select {
+  border-radius: 5px;
+  background-color: var(--color-mid);
+  border: none;
+  outline: none;
+  color: var(--color-text);
+}
+
+.formInput input {
+  padding: 0.5rem;
+}
+
+.formInput select {
+  padding: 0.6rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.btnAdd {
+  padding: 1rem;
+  background-color: var(--color-mid);
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.btnDiscard,
+.btnDraft,
+.btnSend,
+.btnCancel,
+.btnSaveChanges {
+  padding: 1rem;
+}
+
+.btnCancel {
+  background-color: var(--color-gray);
+  color: var(--color-purple);
+  margin-right: 8px;
+}
+
+.btnSaveChanges {
+  background-color: var(--color-purple);
+  color: var(--color-text);
+}
+
+.btnDiscard {
+  background-color: var(--color-gray);
+  color: var(--color-purple);
+}
+
+.btnDraft {
+  background-color: #1e2139;
+  color: var(--color-text);
+  margin-right: 8px;
+}
+
+.btnSend {
+  background-color: var(--color-purple);
+  color: var(--color-text);
+}
+
+.btnBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.itemList {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.backdrop {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  backdrop-filter: blur(5px);
+}
+
+.ModalOpen {
+  animation: showModal 1s ease-out forwards;
+}
+
+.ModalClosed {
+  animation: closeModal 1s ease-out forwards;
+}
+
+.BackdropOpen {
+  display: block;
+}
+
+.BackdropClosed {
+  display: none;
+}
+
+@keyframes showModal {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes closeModal {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translateX(-50%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .formModal {
+    width: 60%;
+    left: 100px;
+    top: -4%;
+  }
+
+  .formModal .backBtn {
+    display: none;
+  }
+
+  .backdrop {
+    display: block;
+    left: 100px;
+    top: 0;
+  }
+}

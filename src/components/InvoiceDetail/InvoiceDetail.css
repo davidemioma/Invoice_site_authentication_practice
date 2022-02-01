@@ -1,0 +1,157 @@
+.allDetails {
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+  line-height: 0.8;
+  min-height: 100vh;
+  box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.countryName {
+  line-height: 1.3;
+}
+
+.btnDiv .statusFunctions {
+  display: none;
+}
+
+.btnDiv,
+.details {
+  background-color: var(--color-mid);
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.btnDiv {
+  margin-bottom: 2rem;
+}
+
+.statusDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statusDiv p {
+  color: var(--color-text);
+}
+
+.details {
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+.clientInfo {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.recieverInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.checkout,
+.checkout_desktop {
+  background-color: var(--color-mid);
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.checkout div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-text);
+  padding: 1.5rem;
+}
+
+.checkoutAmount span {
+  margin-right: 3px;
+}
+
+.grandTotal {
+  background: black;
+  color: var(--color-white);
+}
+
+.checkout_desktop {
+  display: none;
+}
+
+.checkout_desktop div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.priceInfo {
+  color: var(--color-text);
+}
+
+.statusFunctions button {
+  color: var(--color-white);
+  padding: 1rem;
+}
+
+.editInvoiceBtn {
+  background: var(--color-gray-light);
+}
+
+.deleteBtn {
+  background: var(--color-red);
+}
+
+.markBtn {
+  background: var(--color-purple);
+}
+
+.split {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnBottom {
+  display: flex;
+  gap: 0.4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .btnDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .statusDiv {
+    gap: 1.5rem;
+  }
+
+  .btnDiv .btnTop {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .checkout_desktop {
+    display: block;
+  }
+
+  .clientInfo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .clientShit {
+    justify-self: end;
+  }
+
+  .recieverInfo {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .split,
+  .checkout {
+    display: none;
+  }
+}

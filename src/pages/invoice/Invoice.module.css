@@ -1,0 +1,14 @@
+.invoice {
+  position: relative;
+  min-height: 100vh;
+}
+
+.navBar {
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .navBar {
+    margin-bottom: 4rem;
+  }
+}

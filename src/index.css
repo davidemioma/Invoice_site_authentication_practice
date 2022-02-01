@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+:root {
+  --color-light: #252945;
+  --color-dark: #141625;
+  --color-mid: #1e2139;
+  --color-text: #dfe3fa;
+  --color-text-transparent: #dfe3fa21;
+  --color-black: #0c0e16;
+  --color-white: #fff;
+  --color-green: #33d69f;
+  --color-green-transparent: #1f2c3f;
+  --color-orange: #ff8f00;
+  --color-orange-transparent: #2b2736;
+  --color-gray: #dfe3fa;
+  --color-gray-light: #dfe3fa80;
+  --color-gray-transparent: #292c45;
+  --color-purple: #7c5dfa;
+  --color-purple-light: #9277ff;
+  --color-accent: #7e88c3;
+  --color-red: #ec5757;
+  --color-red-light: #ff9797;
+  --color-error: #ec5757;
+  --color-overlay: rgba(0, 0, 0, 0.5);
+  --shadow: 0px 0px 5px hsla(228, 29%, 7%, 0.05);
+  --shadow-light: 0px 0px 5px hsla(228, 29%, 7%, 0.01);
+  --shadow-hard: 0px 0px 10px 10px hsla(228, 29%, 7%, 0.1);
+  --shadow-bottom: 0px 10px 10px hsla(228, 29%, 7%, 0.1);
+}
+
+.lightmode {
+  --color-black: #373b53;
+  --color-white: #0c0e16;
+  --color-light: #f9fafe;
+  --color-dark: #f8f8fb;
+  --color-mid: #fff;
+  --color-text: #859acd;
+  --color-gray: #373b53;
+  --color-gray-transparent: #f3f3f5;
+  --color-orange-transparent: #fff8f0;
+  --color-green-transparent: #f3fdf9;
+  --shadow-hard: 0px 0px 10px 10px hsla(228, 29%, 7%, 0.02);
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-dark);
+}
+
+button {
+  border: none;
+  outline: none;
+  border-radius: 2rem;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.status {
+  width: 120px;
+  padding: 0.5rem;
+  border-radius: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+}
+
+.green {
+  background-color: var(--color-green-transparent);
+}
+
+.green .dot {
+  background-color: var(--color-green);
+}
+
+.green .statusName {
+  color: var(--color-green);
+}
+
+.orange {
+  background-color: var(--color-orange-transparent);
+}
+
+.orange .dot {
+  background-color: var(--color-orange);
+}
+
+.orange .statusName {
+  color: var(--color-orange);
+}
+
+.grey {
+  background-color: var(--color-gray-transparent);
+}
+
+.grey .dot {
+  background-color: var(--color-white);
+}
+
+.grey .statusName {
+  color: var(--color-white);
+}
+
+.backBtn {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-text);
+  background: none;
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 60%;
+  }
+}

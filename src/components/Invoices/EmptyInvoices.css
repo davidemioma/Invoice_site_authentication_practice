@@ -1,0 +1,25 @@
+.emptyList {
+  margin-top: 5rem;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+}
+
+.emptyList img {
+  width: 200px;
+}
+
+.emptyList span {
+  color: var(--color-text);
+  text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .emptyList {
+    margin-top: 10rem;
+  }
+
+  .emptyList img {
+    width: 400px;
+  }
+}
