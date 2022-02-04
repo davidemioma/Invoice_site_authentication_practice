@@ -1,15 +1,15 @@
 import { invoiceActions } from "./index-redux";
 
-export const fetchInvoiceData = () => {
+export const fetchInvoiceData = (page) => {
   return async (dispatch) => {
     const fetchData = async () => {
-      const res = await fetch(
-        "https://invoices-49204-default-rtdb.firebaseio.com/invoices.json"
-      );
+      const res = await fetch(page);
 
       if (!res.ok) throw new Error("Something went wrong...");
 
       const data = await res.json();
+
+      console.log(data);
 
       const result = [];
 
@@ -33,24 +33,21 @@ export const fetchInvoiceData = () => {
       );
     } catch (err) {
       console.log("Could not get invoice");
-      console.log(err);
+      console.error(err);
     }
   };
 };
 
-export const sendInvoiceData = (invoices) => {
+export const sendInvoiceData = (invoices, page) => {
   return async () => {
     const sendRequest = async () => {
-      const res = await fetch(
-        "https://invoices-49204-default-rtdb.firebaseio.com/invoices.json",
-        {
-          method: "PUT",
-          body: JSON.stringify({
-            invoices: invoices,
-            totalInvoices: invoices.length,
-          }),
-        }
-      );
+      const res = await fetch(page, {
+        method: "PUT",
+        body: JSON.stringify({
+          invoices: invoices,
+          totalInvoices: invoices.length,
+        }),
+      });
 
       if (!res.ok) {
         throw new Error("Something went wrong...");

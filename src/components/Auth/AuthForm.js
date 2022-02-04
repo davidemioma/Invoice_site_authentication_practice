@@ -77,7 +77,7 @@ function AuthForm() {
           new Date().getTime() + +data.expiresIn * 1000
         );
 
-        authCtx.login(data.idToken, expirationTime.toISOString());
+        authCtx.login(data.idToken, data.localId, expirationTime.toISOString());
 
         navigate("/invoices", { replace: true });
       })

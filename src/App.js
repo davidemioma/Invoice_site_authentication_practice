@@ -17,12 +17,21 @@ function App() {
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
-    dispatch(fetchInvoiceData());
+    dispatch(
+      fetchInvoiceData(
+        `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.localId}.json`
+      )
+    );
   }, [dispatch]);
 
   useEffect(() => {
     if (invoices.changed) {
-      dispatch(sendInvoiceData(invoices));
+      dispatch(
+        sendInvoiceData(
+          invoices,
+          `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.localId}.json`
+        )
+      );
     }
   }, [dispatch, invoices]);
 

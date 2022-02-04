@@ -46,10 +46,14 @@ export const retrieveStoredToken = () => {
 
   const storedExpiringTime = localStorage.getItem("expiringTime");
 
+  const storedLocalId = localStorage.getItem("localID");
+
   const remainingTime = calcExpiringTime(storedExpiringTime);
 
   if (remainingTime <= 3600) {
     localStorage.removeItem("token");
+
+    localStorage.removeItem("localID");
 
     localStorage.removeItem("expiringTime");
 
@@ -58,6 +62,7 @@ export const retrieveStoredToken = () => {
 
   return {
     token: storedToken,
+    localId: storedLocalId,
     duration: remainingTime,
   };
 };
