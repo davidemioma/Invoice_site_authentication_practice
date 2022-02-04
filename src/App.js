@@ -22,7 +22,7 @@ function App() {
         `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.localId}.json`
       )
     );
-  }, [dispatch]);
+  }, [dispatch, authCtx.localId]);
 
   useEffect(() => {
     if (invoices.changed) {
