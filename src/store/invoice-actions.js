@@ -1,18 +1,20 @@
 import { invoiceActions } from "./index-redux";
 
-const axios = require("axios").default;
-
 export const fetchInvoiceData = (page) => {
   return async (dispatch) => {
     const fetchData = async () => {
-      const res = await axios.get(page);
+      const res = await fetch(page);
 
-      console.log(res.data);
+      if (!res.ok) throw new Error("Something went wrong...");
+
+      const data = await res.json();
+
+      console.log(data);
 
       const result = [];
 
-      for (const key in res.data) {
-        result.push(res.data[key].invoices);
+      for (const key in data) {
+        result.push(data[key].invoices);
       }
 
       const invoices = result[0].map((invoice) => invoice);
@@ -41,12 +43,17 @@ export const fetchInvoiceData = (page) => {
 export const sendInvoiceData = (invoices, page) => {
   return async () => {
     const sendRequest = async () => {
-      const res = axios.post(page, {
-        invoices: invoices,
-        totalInvoices: invoices.length,
+      const res = await fetch(page, {
+        method: "PUT",
+        body: JSON.stringify({
+          invoices: invoices,
+          totalInvoices: invoices.length,
+        }),
       });
 
-      console.log((await res).data);
+      if (!res.ok) {
+        throw new Error("Something went wrong...");
+      }
     };
 
     try {
