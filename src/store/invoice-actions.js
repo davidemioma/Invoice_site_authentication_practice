@@ -45,6 +45,8 @@ export const sendInvoiceData = (invoices, page) => {
         invoices: invoices,
         totalInvoices: invoices.length,
       });
+
+      console.log((await res).data);
     };
 
     try {
