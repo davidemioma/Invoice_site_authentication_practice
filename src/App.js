@@ -33,7 +33,7 @@ function App() {
         )
       );
     }
-  }, [dispatch, invoices]);
+  }, [dispatch, invoices, authCtx.localId]);
 
   return (
     <Routes>
@@ -46,10 +46,9 @@ function App() {
         element={authCtx.isLoggedIn ? <InvoicesPage /> : <AuthPage />}
       />
 
-      <Route
-        path="/invoices/:invoiceId"
-        element={authCtx.isLoggedIn ? <InvoicePage /> : <AuthPage />}
-      />
+      {authCtx.isLoggedIn && (
+        <Route path="/invoices/:invoiceId" element={<InvoicePage />} />
+      )}
     </Routes>
   );
 }
