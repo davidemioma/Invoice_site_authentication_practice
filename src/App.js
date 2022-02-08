@@ -9,6 +9,8 @@ import { fetchInvoiceData, sendInvoiceData } from "./store/invoice-actions";
 import { useContext, useEffect } from "react";
 import AuthContext from "./store/auth-context";
 
+let isInitial = true;
+
 function App() {
   const dispatch = useDispatch();
 
@@ -25,6 +27,11 @@ function App() {
   }, [dispatch, authCtx.localId]);
 
   useEffect(() => {
+    if (isInitial) {
+      isInitial = false;
+      return;
+    }
+
     if (invoices.changed) {
       dispatch(
         sendInvoiceData(
