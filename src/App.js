@@ -53,9 +53,7 @@ function App() {
         element={authCtx.isLoggedIn ? <InvoicesPage /> : <AuthPage />}
       />
 
-      {authCtx.isLoggedIn && (
-        <Route path="/invoices/:invoiceId" element={<InvoicePage />} />
-      )}
+      <Route path="/invoices/:invoiceId" element={<InvoicePage />} />
     </Routes>
   );
 }
