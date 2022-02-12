@@ -149,24 +149,42 @@ function NewForm(props) {
     reset: resetdescriptionInput,
   } = useInput((value) => value.trim() !== "");
 
-  //On Save and Send Button Clicked
-  const onSaveAndSend = (e) => {
-    e.preventDefault();
+  const resetForm = () => {
+    resetAddressInput();
+    resetCityInput();
+    resetpostCodeInput();
+    resetcountryInput();
+    resetclientCountryInput();
+    resetclientEmailInput();
+    resetclientNameInput();
+    resetclientAddressInput();
+    resetclientCityInput();
+    resetclientPostCodeInput();
+    resetclientCountryInput();
+    resetinvoiceDateInput();
+    setTermValue("");
+    resetdescriptionInput();
+    setInvoiceItemList([]);
 
+    props.closeForm();
+  };
+
+  //On Save and Send Button Clicked
+  const onSaveAndSend = () => {
     if (
-      !enteredAddressIsValid &&
-      !enteredCityIsValid &&
-      !enteredpostCodeIsValid &&
-      !enteredcountryIsValid &&
-      !enteredclientNameIsValid &&
-      !enteredclientEmailIsValid &&
-      !enteredclientAddressIsValid &&
-      !enteredclientCityIsValid &&
-      !enteredclientPostCodeIsValid &&
-      !enteredclientCountryIsValid &&
-      !enteredinvoiceDateIsValid &&
-      !entereddescriptionIsValid &&
-      termValue === "" &&
+      !enteredAddressIsValid ||
+      !enteredCityIsValid ||
+      !enteredpostCodeIsValid ||
+      !enteredcountryIsValid ||
+      !enteredclientNameIsValid ||
+      !enteredclientEmailIsValid ||
+      !enteredclientAddressIsValid ||
+      !enteredclientCityIsValid ||
+      !enteredclientPostCodeIsValid ||
+      !enteredclientCountryIsValid ||
+      !enteredinvoiceDateIsValid ||
+      !entereddescriptionIsValid ||
+      termValue === "" ||
       invoiceItemList.length <= 0
     ) {
       return;
@@ -197,43 +215,25 @@ function NewForm(props) {
 
     dispatch(invoiceActions.addInvoice(invoice));
 
-    resetAddressInput();
-    resetCityInput();
-    resetpostCodeInput();
-    resetcountryInput();
-    resetclientCountryInput();
-    resetclientEmailInput();
-    resetclientNameInput();
-    resetclientAddressInput();
-    resetclientCityInput();
-    resetclientPostCodeInput();
-    resetclientCountryInput();
-    resetinvoiceDateInput();
-    setTermValue("");
-    resetdescriptionInput();
-    setInvoiceItemList([]);
-
-    props.closeForm();
+    resetForm();
   };
 
   //On Save as draft Button Clicked
-  const onSaveAsDraft = (e) => {
-    e.preventDefault();
-
+  const onSaveAsDraft = () => {
     if (
-      !enteredAddressIsValid &&
-      !enteredCityIsValid &&
-      !enteredpostCodeIsValid &&
-      !enteredcountryIsValid &&
-      !enteredclientNameIsValid &&
-      !enteredclientEmailIsValid &&
-      !enteredclientAddressIsValid &&
-      !enteredclientCityIsValid &&
-      !enteredclientPostCodeIsValid &&
-      !enteredclientCountryIsValid &&
-      !enteredinvoiceDateIsValid &&
-      !entereddescriptionIsValid &&
-      termValue === "" &&
+      !enteredAddressIsValid ||
+      !enteredCityIsValid ||
+      !enteredpostCodeIsValid ||
+      !enteredcountryIsValid ||
+      !enteredclientNameIsValid ||
+      !enteredclientEmailIsValid ||
+      !enteredclientAddressIsValid ||
+      !enteredclientCityIsValid ||
+      !enteredclientPostCodeIsValid ||
+      !enteredclientCountryIsValid ||
+      !enteredinvoiceDateIsValid ||
+      !entereddescriptionIsValid ||
+      termValue === "" ||
       invoiceItemList.length <= 0
     ) {
       return;
@@ -264,46 +264,14 @@ function NewForm(props) {
 
     dispatch(invoiceActions.addInvoice(invoice));
 
-    resetAddressInput();
-    resetCityInput();
-    resetpostCodeInput();
-    resetcountryInput();
-    resetclientCountryInput();
-    resetclientNameInput();
-    resetclientAddressInput();
-    resetclientCityInput();
-    resetclientPostCodeInput();
-    resetclientCountryInput();
-    resetclientEmailInput();
-    resetinvoiceDateInput();
-    setTermValue("");
-    resetdescriptionInput();
-    setInvoiceItemList([]);
-
-    props.closeForm();
+    resetForm();
   };
 
   //On Discard Button Clicked
   const ondiscardHandler = (e) => {
     e.preventDefault();
 
-    resetAddressInput();
-    resetCityInput();
-    resetpostCodeInput();
-    resetcountryInput();
-    resetclientCountryInput();
-    resetclientEmailInput();
-    resetclientNameInput();
-    resetclientAddressInput();
-    resetclientCityInput();
-    resetclientPostCodeInput();
-    resetclientCountryInput();
-    resetinvoiceDateInput();
-    setTermValue("");
-    resetdescriptionInput();
-    setInvoiceItemList([]);
-
-    props.closeForm();
+    resetForm();
   };
 
   const backdropClasses = [
