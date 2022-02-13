@@ -73,11 +73,7 @@ function AuthForm() {
         return res.json();
       })
       .then((data) => {
-        const expirationTime = new Date(
-          new Date().getTime() + +data.expiresIn * 1000
-        );
-
-        authCtx.login(data.idToken, data.localId, expirationTime.toISOString());
+        authCtx.login(data.idToken, data.localId);
 
         navigate("/invoices", { replace: true });
       })

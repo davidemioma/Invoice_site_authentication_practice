@@ -2,7 +2,7 @@ import AuthPage from "./pages/AuthPage/AuthPage";
 import HomePage from "./pages/HomePage/HomePage";
 import InvoicesPage from "./pages/Invoices/InvoicesPage";
 import InvoicePage from "./pages/invoice/InvoicePage";
-import { Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { fetchInvoiceData, sendInvoiceData } from "./store/invoice-actions";
@@ -50,12 +50,14 @@ function App() {
 
       <Route
         path="/invoices"
-        element={authCtx.isLoggedIn ? <InvoicesPage /> : <AuthPage />}
+        element={
+          authCtx.isLoggedIn ? <InvoicesPage /> : <Navigate to="/auth" />
+        }
       />
 
       <Route
         path="/invoices/:invoiceId"
-        element={authCtx.isLoggedIn ? <InvoicePage /> : <AuthPage />}
+        element={authCtx.isLoggedIn ? <InvoicePage /> : <Navigate to="/auth" />}
       />
     </Routes>
   );
