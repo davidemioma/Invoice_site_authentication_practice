@@ -15,7 +15,7 @@ function NewForm(props) {
   const [invoiceItemList, setInvoiceItemList] = useState([]);
 
   //To Get the term value from select Input
-  const [termValue, setTermValue] = useState();
+  const [termValue, setTermValue] = useState("1");
 
   const getTermValue = (e) => {
     if (e.target.value) {
@@ -443,7 +443,7 @@ function NewForm(props) {
 
               <div className="formInput">
                 <label htmlFor="paymentTerm">Payment Term</label>
-                <select onChange={getTermValue}>
+                <select value={termValue} onChange={getTermValue}>
                   <option value="1">Net 1 day</option>
                   <option value="7">Net 7 days</option>
                   <option value="30">Net 30 days</option>
