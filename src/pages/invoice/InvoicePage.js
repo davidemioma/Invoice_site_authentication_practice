@@ -22,10 +22,6 @@ function InvoicePage() {
     setModalOpen(false);
   };
 
-  window.onload = function () {
-    window.location = "/invoices";
-  };
-
   return (
     <div className={classes.invoice}>
       <div className={classes.navBar}>

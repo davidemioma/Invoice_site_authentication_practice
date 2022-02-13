@@ -61,10 +61,6 @@ export const AuthContextProvider = (props) => {
     logoutTimer = setTimeout(logoutHandler, autoLogoutTime);
   };
 
-  window.onbeforeunload = () => {
-    logoutHandler();
-  };
-
   useEffect(() => {
     if (tokenData) {
       logoutTimer = setTimeout(logoutHandler, tokenData.duration);
