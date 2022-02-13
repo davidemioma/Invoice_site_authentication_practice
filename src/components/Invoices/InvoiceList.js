@@ -4,7 +4,7 @@ import { getDueDate } from "../../utils/utils";
 import EmptyInvoices from "./EmptyInvoices";
 
 function InvoiceList(props) {
-  if (props.invoices.length === 0) {
+  if (props.invoices.length <= 0) {
     return (
       <EmptyInvoices
         header={"There is nothing here"}
