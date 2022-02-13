@@ -14,8 +14,12 @@ function Nav() {
 
       <div className={classes.imgDiv}>
         <img src={"/static/images/icon-sun.svg"} alt="" />
-        <div onClick={onClickHandler} className={classes.avatar}>
-          <img src={"/static/images/image-avatar.jpg"} alt="" />
+        <div className={classes.avatar}>
+          <img
+            onClick={onClickHandler}
+            src={"/static/images/image-avatar.jpg"}
+            alt=""
+          />
         </div>
       </div>
     </nav>

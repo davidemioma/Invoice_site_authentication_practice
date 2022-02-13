@@ -1,7 +1,7 @@
 .nav {
   position: relative;
   top: 0;
-  z-index: -100;
+  z-index: 100;
   width: 100%;
   display: inline-flex;
   justify-content: space-between;
@@ -34,6 +34,7 @@
   width: 30px;
   height: 30px;
   border-radius: 100%;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 1024px) {
