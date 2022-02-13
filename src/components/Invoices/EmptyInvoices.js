@@ -5,10 +5,17 @@ function EmptyInvoices(props) {
     <div className="emptyList">
       <img src={"/static/images/illustration-empty.svg"} alt="" />
 
-      <span>
+      <span className="emptytitle">
         <h1>{props.header}</h1>
         <p>{props.text}</p>
       </span>
+
+      <button style={{ display: props.display }} onClick={props.handleClick}>
+        <span>
+          <img src={"/static/images/icon-plus.svg"} alt="" />
+        </span>
+        {props.task}
+      </button>
     </div>
   );
 }

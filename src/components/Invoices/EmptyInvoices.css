@@ -9,9 +9,47 @@
   width: 200px;
 }
 
-.emptyList span {
+.emptyList .emptytitle {
   color: var(--color-text);
   text-align: center;
+  margin-bottom: 1rem;
+}
+
+.emptyList button,
+.emptyList button span {
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyList button span {
+  display: inline-flex;
+}
+
+.emptyList button {
+  gap: 0.7rem;
+  background-color: var(--color-purple);
+  color: #fff;
+  padding: 0.6rem;
+}
+
+.emptyList button span {
+  background-color: #fff;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+}
+
+.emptyList button span img:hover {
+  animation: spinner 0.2s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (min-width: 1024px) {

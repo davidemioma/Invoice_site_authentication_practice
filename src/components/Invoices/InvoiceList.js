@@ -7,6 +7,7 @@ function InvoiceList(props) {
   if (props.invoices.length <= 0) {
     return (
       <EmptyInvoices
+        display={"none"}
         header={"There is nothing here"}
         text={"Create on invoice by clicking the New button and get started"}
       />
