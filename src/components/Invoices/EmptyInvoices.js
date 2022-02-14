@@ -11,9 +11,6 @@ function EmptyInvoices(props) {
       </span>
 
       <button style={{ display: props.display }} onClick={props.handleClick}>
-        <span>
-          <img src={"/static/images/icon-plus.svg"} alt="" />
-        </span>
         {props.task}
       </button>
     </div>

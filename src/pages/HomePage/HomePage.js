@@ -16,7 +16,7 @@ function HomePage() {
       </div>
 
       <EmptyInvoices
-        header={"Click the avatar icon"}
+        header={"Welcome"}
         text={"Login or create an accout to add invoices"}
         display={"inline-flex"}
         task={"Login or Sign up"}

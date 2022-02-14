@@ -15,41 +15,20 @@
   margin-bottom: 1rem;
 }
 
-.emptyList button,
-.emptyList button span {
+.emptyList button {
   align-items: center;
   justify-content: center;
-}
-
-.emptyList button span {
-  display: inline-flex;
 }
 
 .emptyList button {
   gap: 0.7rem;
   background-color: var(--color-purple);
   color: #fff;
-  padding: 0.6rem;
+  padding: 0.9rem 1rem;
 }
 
-.emptyList button span {
-  background-color: #fff;
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
-}
-
-.emptyList button span img:hover {
-  animation: spinner 0.2s linear infinite;
-}
-
-@keyframes spinner {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.emptyList button:hover {
+  transform: scale(1.1);
 }
 
 @media screen and (min-width: 1024px) {
