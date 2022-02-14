@@ -200,7 +200,7 @@ function EditForm(props) {
 
       {props.show && (
         <div className={modalClasses.join(" ")}>
-          <button className="backBtn">
+          <button onClick={props.closeForm} className="backBtn">
             <img src={"/static/images/icon-arrow-left.svg"} alt="" />
             Go Back
           </button>
