@@ -6,7 +6,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 20px;
 }
 
@@ -22,7 +22,7 @@
 
 .formInput label {
   color: var(--color-accent);
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .formInput input {
@@ -31,7 +31,7 @@
   border: none;
   outline: none;
   color: var(--color-text);
-  padding: 1rem;
+  padding: 0.5rem;
   font-size: 1.4rem;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .btnAction {
-  padding: 1rem;
+  padding: 0.7rem;
   width: 120px;
   background: var(--color-accent);
   color: #fff;
@@ -57,12 +57,21 @@
 @media (min-width: 768px) {
   .formModal {
     width: 70%;
+    padding: 2rem;
   }
 }
 
 @media (min-width: 1024px) {
   .formModal {
     width: 60%;
+  }
+
+  .formInput label {
+    font-size: 1.5rem;
+  }
+
+  .formInput input {
+    font-size: 1.5rem;
   }
 }
 

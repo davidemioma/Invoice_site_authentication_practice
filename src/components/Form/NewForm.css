@@ -5,10 +5,14 @@
   left: 0;
   min-height: 100vh;
   width: 100%;
-  padding: 1.5rem;
+  padding: 1.5rem 0.7rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;
   overflow: scroll;
+}
+
+.backBtn {
+  margin-top: 1rem;
 }
 
 .formModal .errorText {
@@ -177,6 +181,7 @@
     width: 60%;
     left: 100px;
     top: -4%;
+    padding: 2rem;
   }
 
   .formModal .backBtn {
