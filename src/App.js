@@ -50,14 +50,12 @@ function App() {
 
       <Route
         path="/invoices"
-        element={
-          authCtx.isLoggedIn ? <InvoicesPage /> : <Navigate to="/auth" />
-        }
+        element={authCtx.isLoggedIn ? <InvoicesPage /> : <Navigate to="/" />}
       />
 
       <Route
         path="/invoices/:invoiceId"
-        element={authCtx.isLoggedIn ? <InvoicePage /> : <Navigate to="/auth" />}
+        element={authCtx.isLoggedIn ? <InvoicePage /> : <Navigate to="/" />}
       />
     </Routes>
   );
