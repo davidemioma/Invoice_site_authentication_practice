@@ -5,8 +5,6 @@ import {
   signInWithEmailAndPassword,
   signOut,
   sendPasswordResetEmail,
-  updateEmail,
-  updatePassword,
 } from "@firebase/auth";
 
 const AuthContext = React.createContext({

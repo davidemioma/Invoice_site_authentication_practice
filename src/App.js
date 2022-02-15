@@ -4,13 +4,13 @@ import InvoicePage from "./pages/invoice/InvoicePage";
 import SignUp from "./components/Auth/SignUp";
 import Login from "./components/Auth/Login";
 import ForgotPassword from "./components/Auth/ForgotPassword";
-import { Routes, Route, Navigate } from "react-router";
+import { Routes, Route } from "react-router";
 import PrivateRoutes from "./components/Auth/PrivateRoutes";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { fetchInvoiceData, sendInvoiceData } from "./store/invoice-actions";
 import { useEffect } from "react";
-import AuthContext, { useAuth } from "./store/auth-context";
+import { useAuth } from "./store/auth-context";
 
 let isInitial = true;
 
@@ -21,29 +21,31 @@ function App() {
 
   const authCtx = useAuth();
 
-  // useEffect(() => {
-  //   dispatch(
-  //     fetchInvoiceData(
-  //       `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.localId}.json`
-  //     )
-  //   );
-  // }, [dispatch, authCtx.localId]);
+  console.log(authCtx.currentUser);
 
-  // useEffect(() => {
-  //   if (isInitial) {
-  //     isInitial = false;
-  //     return;
-  //   }
+  useEffect(() => {
+    dispatch(
+      fetchInvoiceData(
+        `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.currentUser}.json`
+      )
+    );
+  }, [dispatch, authCtx.currentUser]);
 
-  //   if (invoices.changed) {
-  //     dispatch(
-  //       sendInvoiceData(
-  //         invoices,
-  //         `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.localId}.json`
-  //       )
-  //     );
-  //   }
-  // }, [dispatch, invoices, authCtx.localId]);
+  useEffect(() => {
+    if (isInitial) {
+      isInitial = false;
+      return;
+    }
+
+    if (invoices.changed) {
+      dispatch(
+        sendInvoiceData(
+          invoices,
+          `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.currentUser}.json`
+        )
+      );
+    }
+  }, [dispatch, invoices, authCtx.currentUser]);
 
   return (
     <Routes>

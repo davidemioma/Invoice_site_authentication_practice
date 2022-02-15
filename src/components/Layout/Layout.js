@@ -1,7 +1,7 @@
 import Filters from "./Filters";
 import "./Layout.css";
 import { useSelector } from "react-redux";
-import AuthContext, { useAuth } from "../../store/auth-context";
+import { useAuth } from "../../store/auth-context";
 
 function Layout(props) {
   const authCtx = useAuth();
