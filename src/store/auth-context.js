@@ -9,6 +9,7 @@ import {
 
 const AuthContext = React.createContext({
   currentUser: "",
+  storageId: "",
   signUp: (email, password) => {},
   login: (email, password) => {},
   logout: () => {},
@@ -21,6 +22,8 @@ export const useAuth = () => {
 
 export const AuthContextprovider = (props) => {
   const [currentUser, setCurrentUser] = useState();
+
+  const [storageId, setStorageId] = useState();
 
   const [loading, setLoading] = useState(true);
 
@@ -43,6 +46,9 @@ export const AuthContextprovider = (props) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+
+      setStorageId(user.uid);
+
       setLoading(false);
     });
 
@@ -51,6 +57,7 @@ export const AuthContextprovider = (props) => {
 
   const value = {
     currentUser,
+    storageId,
     signUp,
     login,
     logout,

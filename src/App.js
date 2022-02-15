@@ -24,10 +24,10 @@ function App() {
   useEffect(() => {
     dispatch(
       fetchInvoiceData(
-        `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.currentUser.reloadUserInfo.localId}.json`
+        `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.storageId}.json`
       )
     );
-  }, [dispatch, authCtx.currentUser]);
+  }, [dispatch, authCtx.storageId]);
 
   useEffect(() => {
     if (isInitial) {
@@ -39,11 +39,11 @@ function App() {
       dispatch(
         sendInvoiceData(
           invoices,
-          `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.currentUser.reloadUserInfo.localId}.json`
+          `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.storageId}.json`
         )
       );
     }
-  }, [dispatch, invoices, authCtx.currentUser]);
+  }, [dispatch, invoices, authCtx.storageId]);
 
   return (
     <Routes>
@@ -58,14 +58,14 @@ function App() {
         }
       />
 
-      <Route
+      {/* <Route
         path="/invoices/:invoiceId"
         element={
           <PrivateRoutes>
             <InvoicePage />
           </PrivateRoutes>
         }
-      />
+      /> */}
 
       <Route path="/login" element={<Login />} />
 

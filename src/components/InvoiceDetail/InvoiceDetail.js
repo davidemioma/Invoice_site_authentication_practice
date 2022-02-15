@@ -18,7 +18,7 @@ function InvoiceDetail(props) {
 
   const invoices = useSelector((state) => state.allInvoice.invoices);
 
-  const invoiceData = invoices.filter((invoice) => invoice.id === invoiceId);
+  const invoiceData = invoices?.filter((invoice) => invoice.id === invoiceId);
 
   const invoice = invoiceData[0];
 
