@@ -55,6 +55,16 @@
   gap: 0.5rem;
 }
 
+.error {
+  color: red;
+  padding: 1rem o;
+}
+
+.message {
+  padding: 1rem o;
+  color: var(--color-accent);
+}
+
 @media (min-width: 768px) {
   .formModal {
     width: 70%;
