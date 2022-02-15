@@ -1,10 +1,9 @@
-import React, { Fragment, useState } from "react";
-import { Form, Button, Card, Alert, Container } from "react-bootstrap";
+import React, { useState } from "react";
 import { useRef } from "react";
 import { useAuth } from "../../store/auth-context";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import classes from "./Auth.module.css";
 
 export default function SignUp() {
   const emailRef = useRef();
@@ -45,55 +44,46 @@ export default function SignUp() {
   };
 
   return (
-    <Fragment>
-      <Container
-        className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "100vh" }}
-      >
-        <div className="w-100" style={{ maxWidth: "400px" }}>
-          <Card>
-            <Card.Body>
-              <h2 className="text-center mb-4">Sign Up</h2>
+    <div className={classes.formModal}>
+      <h1>SignUp</h1>
 
-              {error && <Alert variant="danger">{error}</Alert>}
+      {error && <p className={classes.error}>{error}</p>}
 
-              <Form onSubmit={onHandleSubmit}>
-                <Form.Group id="email">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" ref={emailRef} required />
-                </Form.Group>
-
-                <Form.Group id="password">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" ref={passwordRef} required />
-                </Form.Group>
-
-                <Form.Group id="password-confirm">
-                  <Form.Label>Password Confirmation</Form.Label>
-                  <Form.Control
-                    type="password"
-                    ref={passwordConfirmRef}
-                    required
-                  />
-                </Form.Group>
-
-                <Button
-                  disabled={loading}
-                  style={{ marginTop: "1rem" }}
-                  className="w-100"
-                  type="submit"
-                >
-                  Sign Up
-                </Button>
-              </Form>
-            </Card.Body>
-          </Card>
-
-          <div className="w-100 text-center mt-2">
-            Already have an account? <Link to="/login">Login</Link>
-          </div>
+      <form onSubmit={onHandleSubmit} className={classes.form}>
+        <div className={classes.formInput}>
+          <label htmlFor="email">Email</label>
+          <input required ref={emailRef} type="email" id="email" />
         </div>
-      </Container>
-    </Fragment>
+
+        <div className={classes.formInput}>
+          <label htmlFor="password">Password</label>
+          <input required ref={passwordRef} type="password" id="password" />
+        </div>
+
+        <div className={classes.formInput}>
+          <label htmlFor="password-confirm">Re-enter Password</label>
+          <input
+            required
+            ref={passwordConfirmRef}
+            type="password"
+            id="password-confirm"
+          />
+        </div>
+
+        <div className={classes.actions}>
+          <button
+            disabled={loading}
+            type="submit"
+            className={classes.btnAction}
+          >
+            Sign Up
+          </button>
+        </div>
+      </form>
+
+      <div className={classes.link}>
+        Already have an account? <Link to="/login">Login</Link>
+      </div>
+    </div>
   );
 }

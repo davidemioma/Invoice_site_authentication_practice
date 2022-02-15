@@ -1,8 +1,7 @@
 import React, { Fragment, useState, useRef } from "react";
-import { Card, Form, Alert, Button, Container } from "react-bootstrap";
 import { useAuth } from "../../store/auth-context";
 import { Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import classes from "./Auth.module.css";
 
 export default function ForgotPassword() {
   const authCtx = useAuth();
@@ -34,42 +33,37 @@ export default function ForgotPassword() {
   };
 
   return (
-    <Fragment>
-      <Container
-        className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "100vh" }}
-      >
-        <div className="w-100" style={{ maxWidth: "400px" }}>
-          <Card>
-            <Card.Body>
-              <h2 className="text-center mb-4">Password Reset</h2>
+    <div className={classes.formModal}>
+      <h1>Password Reset</h1>
 
-              {error && <Alert variant="danger">{error}</Alert>}
+      {error && <p className={classes.error}>{error}</p>}
 
-              {message && <Alert variant="success">{message}</Alert>}
+      {message && <p className={classes.message}>{message}</p>}
 
-              <Form onSubmit={handleSubmit}>
-                <Form.Group id="email">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" ref={emailRef} required />
-                </Form.Group>
+      <form onSubmit={handleSubmit} className={classes.form}>
+        <div className={classes.formInput}>
+          <label htmlFor="email">Email</label>
+          <input required ref={emailRef} type="email" id="email" />
+        </div>
 
-                <Button disabled={loading} className="w-100" type="submit">
-                  Reset Password
-                </Button>
-              </Form>
+        <div className={classes.actions}>
+          <button
+            disabled={loading}
+            type="submit"
+            className={classes.btnAction}
+          >
+            Reset
+          </button>
 
-              <div className="w-100 text-center mt-3">
-                <Link to="/login">Login</Link>
-              </div>
-            </Card.Body>
-          </Card>
-
-          <div className="w-100 text-center mt-2">
-            Need an account? <Link to="/signup">Sign Up</Link>
+          <div>
+            <Link to="/login">Login</Link>
           </div>
         </div>
-      </Container>
-    </Fragment>
+      </form>
+
+      <div className={classes.link}>
+        Need an account? <Link to="/signup">Sign Up</Link>
+      </div>
+    </div>
   );
 }

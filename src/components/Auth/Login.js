@@ -1,9 +1,8 @@
-import React, { Fragment, useRef, useState } from "react";
-import { Card, Form, Button, Alert, Container } from "react-bootstrap";
+import React, { useRef, useState } from "react";
 import { useAuth } from "../../store/auth-context";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import classes from "./Auth.module.css";
 
 export default function Login() {
   const emailRef = useRef();
@@ -37,50 +36,40 @@ export default function Login() {
   };
 
   return (
-    <Fragment>
-      <Container
-        className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "100vh" }}
-      >
-        <div className="w-100" style={{ maxWidth: "400px" }}>
-          <Card>
-            <Card.Body>
-              <h2 className="text-center mb-4">Log In</h2>
+    <div className={classes.formModal}>
+      <h1>Login</h1>
 
-              {error && <Alert variant="danger">{error}</Alert>}
+      {error && <p className={classes.error}>{error}</p>}
 
-              <Form onSubmit={handleSubmit}>
-                <Form.Group id="email">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" ref={emailRef} required />
-                </Form.Group>
+      <form onSubmit={handleSubmit} className={classes.form}>
+        <div className={classes.formInput}>
+          <label htmlFor="email">Email</label>
+          <input required ref={emailRef} type="email" id="email" />
+        </div>
 
-                <Form.Group id="password">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" ref={passwordRef} required />
-                </Form.Group>
+        <div className={classes.formInput}>
+          <label htmlFor="password">Password</label>
+          <input required ref={passwordRef} type="password" id="password" />
+        </div>
 
-                <Button
-                  style={{ marginTop: "1rem" }}
-                  disabled={loading}
-                  className="w-100"
-                  type="submit"
-                >
-                  Log In
-                </Button>
-              </Form>
+        <div className={classes.actions}>
+          <button
+            disabled={loading}
+            type="submit"
+            className={classes.btnAction}
+          >
+            Login
+          </button>
 
-              <div className="w-100 text-center mt-3">
-                <Link to="/forgot-password">Forgot Password?</Link>
-              </div>
-            </Card.Body>
-          </Card>
-
-          <div className="w-100 text-center mt-2">
-            Need an account? <Link to="/signup">Sign Up</Link>
+          <div className="">
+            <Link to="/forgot-password">Forgot Password?</Link>
           </div>
         </div>
-      </Container>
-    </Fragment>
+      </form>
+
+      <div className={classes.link}>
+        Need an account? <Link to="/signup">Sign Up</Link>
+      </div>
+    </div>
   );
 }

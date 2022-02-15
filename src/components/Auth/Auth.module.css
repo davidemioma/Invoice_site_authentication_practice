@@ -1,0 +1,83 @@
+.formModal {
+  background-color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.formInput {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.formInput label {
+  color: var(--color-accent);
+  font-size: 1rem;
+}
+
+.formInput input {
+  border-radius: 5px;
+  background-color: var(--color-accent);
+  border: none;
+  outline: none;
+  color: var(--color-text);
+  padding: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.actions {
+  display: grid;
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.btnAction {
+  padding: 0.7rem;
+  width: 120px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .formModal {
+    width: 70%;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .formModal {
+    width: 60%;
+  }
+
+  .formInput label {
+    font-size: 1.5rem;
+  }
+
+  .formInput input {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .formModal {
+    width: 50%;
+  }
+}
