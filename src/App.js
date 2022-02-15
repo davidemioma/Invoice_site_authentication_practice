@@ -58,14 +58,14 @@ function App() {
         }
       />
 
-      {/* <Route
+      <Route
         path="/invoices/:invoiceId"
         element={
           <PrivateRoutes>
             <InvoicePage />
           </PrivateRoutes>
         }
-      /> */}
+      />
 
       <Route path="/login" element={<Login />} />
 

@@ -1,25 +1,15 @@
 import "./NewForm.css";
 import Item from "./Item";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router";
 import { invoiceActions } from "../../store/index-redux";
 import EditItem from "./EditItem";
 import { useState, Fragment } from "react";
 import { formatEditDate } from "../../utils/utils";
 
 function EditForm(props) {
-  const params = useParams();
-
   const dispatch = useDispatch();
 
-  const { invoiceId } = params;
-
-  const invoices = useSelector((state) => state.allInvoice.invoices);
-
-  const invoiceData = invoices?.filter((invoice) => invoice.id === invoiceId);
-
-  const invoice = invoiceData[0];
+  const invoice = props.invoice;
 
   //This is all the invoice item Function
   const [invoiceItemList, setInvoiceItemList] = useState([]);

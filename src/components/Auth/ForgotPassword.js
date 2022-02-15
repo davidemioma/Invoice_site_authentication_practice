@@ -2,6 +2,7 @@ import React, { Fragment, useState, useRef } from "react";
 import { Card, Form, Alert, Button, Container } from "react-bootstrap";
 import { useAuth } from "../../store/auth-context";
 import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function ForgotPassword() {
   const authCtx = useAuth();

@@ -1,6 +1,4 @@
 import "./InvoiceDetail.css";
-import { useParams } from "react-router";
-import { useSelector } from "react-redux";
 import { getDueDate } from "../../utils/utils";
 import { Fragment } from "react";
 import { useDispatch } from "react-redux";
@@ -8,19 +6,11 @@ import { invoiceActions } from "../../store/index-redux";
 import { useNavigate } from "react-router";
 
 function InvoiceDetail(props) {
-  const params = useParams();
-
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
-  const { invoiceId } = params;
-
-  const invoices = useSelector((state) => state.allInvoice.invoices);
-
-  const invoiceData = invoices?.filter((invoice) => invoice.id === invoiceId);
-
-  const invoice = invoiceData[0];
+  const invoice = props.invoice;
 
   const dueDate = getDueDate(invoice.invoiceDate, invoice.terms);
 

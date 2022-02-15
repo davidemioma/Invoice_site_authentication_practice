@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useAuth } from "../../store/auth-context";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function SignUp() {
   const emailRef = useRef();

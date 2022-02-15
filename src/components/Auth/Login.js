@@ -3,6 +3,7 @@ import { Card, Form, Button, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../../store/auth-context";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Login() {
   const emailRef = useRef();
