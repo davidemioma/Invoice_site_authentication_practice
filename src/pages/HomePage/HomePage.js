@@ -6,7 +6,7 @@ function HomePage() {
   const navigate = useNavigate();
 
   const onClickHandler = () => {
-    navigate("/auth", { push: true });
+    navigate("/login", { push: true });
   };
 
   return (

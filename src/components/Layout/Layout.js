@@ -1,11 +1,10 @@
 import Filters from "./Filters";
 import "./Layout.css";
 import { useSelector } from "react-redux";
-import AuthContext from "../../store/auth-context";
-import { useContext } from "react";
+import AuthContext, { useAuth } from "../../store/auth-context";
 
 function Layout(props) {
-  const authCtx = useContext(AuthContext);
+  const authCtx = useAuth();
 
   const noOfInvoices = useSelector((state) => state.allInvoice.totalInvoices);
 

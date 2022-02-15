@@ -1,45 +1,67 @@
-import { createContext, useCallback, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { auth } from "../firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  sendPasswordResetEmail,
+  updateEmail,
+  updatePassword,
+} from "@firebase/auth";
 
-const AuthContext = createContext({
-  token: "",
-  localId: "",
-  isLoggedIn: false,
-  login: (token) => {},
+const AuthContext = React.createContext({
+  currentUser: "",
+  signUp: (email, password) => {},
+  login: (email, password) => {},
   logout: () => {},
+  resetPassword: (email) => {},
 });
 
-export const AuthContextProvider = (props) => {
-  const [token, setToken] = useState(null);
+export const useAuth = () => {
+  return useContext(AuthContext);
+};
 
-  const [localId, setLocalId] = useState(null);
+export const AuthContextprovider = (props) => {
+  const [currentUser, setCurrentUser] = useState();
 
-  const userIsLoggedIn = !!token && !!localId;
+  const [loading, setLoading] = useState(true);
 
-  const logoutHandler = useCallback(() => {
-    setToken(null);
+  function signUp(email, password) {
+    return createUserWithEmailAndPassword(auth, email, password);
+  }
 
-    setLocalId(null);
+  function login(email, password) {
+    return signInWithEmailAndPassword(auth, email, password);
+  }
+
+  function logout() {
+    return signOut(auth);
+  }
+
+  function resetPassword(email) {
+    return sendPasswordResetEmail(auth, email);
+  }
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+      setLoading(false);
+    });
+
+    return unsubscribe;
   }, []);
 
-  const loginHandler = (token, localId) => {
-    setToken(token);
-
-    setLocalId(localId);
-  };
-
-  const contextValue = {
-    token: token,
-    localId: localId,
-    isLoggedIn: userIsLoggedIn,
-    login: loginHandler,
-    logout: logoutHandler,
+  const value = {
+    currentUser,
+    signUp,
+    login,
+    logout,
+    resetPassword,
   };
 
   return (
-    <AuthContext.Provider value={contextValue}>
-      {props.children}
+    <AuthContext.Provider value={value}>
+      {!loading && props.children}
     </AuthContext.Provider>
   );
 };
-
-export default AuthContext;
