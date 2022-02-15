@@ -2,9 +2,16 @@ import Filters from "./Filters";
 import "./Layout.css";
 import { useSelector } from "react-redux";
 import { useAuth } from "../../store/auth-context";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { Alert } from "react-bootstrap";
 
 function Layout(props) {
   const authCtx = useAuth();
+
+  const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   const noOfInvoices = useSelector((state) => state.allInvoice.totalInvoices);
 
@@ -12,8 +19,14 @@ function Layout(props) {
     props.getFilterValue(value);
   };
 
-  const onLogoutHandler = () => {
-    authCtx.logout();
+  const onLogoutHandler = async () => {
+    try {
+      await authCtx.logout();
+
+      navigate("/login", { replace: true });
+    } catch (err) {
+      setError("Failed to log out");
+    }
   };
 
   return (
@@ -23,6 +36,8 @@ function Layout(props) {
           <span>Invoices</span>
           <span className="amount">{noOfInvoices} invoices</span>
         </div>
+
+        {error && <Alert variant="danger">{error}</Alert>}
 
         <div className="options">
           <Filters onFilterValue={getFilterValue} />

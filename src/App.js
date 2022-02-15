@@ -21,12 +21,10 @@ function App() {
 
   const authCtx = useAuth();
 
-  console.log(authCtx.currentUser);
-
   useEffect(() => {
     dispatch(
       fetchInvoiceData(
-        `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.currentUser}.json`
+        `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.currentUser.reloadUserInfo.localId}.json`
       )
     );
   }, [dispatch, authCtx.currentUser]);
@@ -41,7 +39,7 @@ function App() {
       dispatch(
         sendInvoiceData(
           invoices,
-          `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.currentUser}.json`
+          `https://invoices-49204-default-rtdb.firebaseio.com/${authCtx.currentUser.reloadUserInfo.localId}.json`
         )
       );
     }
