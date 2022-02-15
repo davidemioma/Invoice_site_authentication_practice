@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useAuth } from "../../store/auth-context";
 import { Link } from "react-router-dom";
 import classes from "./Auth.module.css";

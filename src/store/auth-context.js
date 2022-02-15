@@ -46,9 +46,9 @@ export const AuthContextprovider = (props) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-
-      setStorageId(user.uid);
-
+      if (user) {
+        setStorageId(user.uid);
+      }
       setLoading(false);
     });
 
