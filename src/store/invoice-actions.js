@@ -29,7 +29,7 @@ export const fetchInvoiceData = (page) => {
 
       dispatch(
         invoiceActions.replaceInvoices({
-          invoices: invoiceData.length > 0 ? invoiceData : [],
+          invoices: invoiceData || [],
           totalInvoices: invoiceData.length,
         })
       );
